@@ -1,0 +1,78 @@
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+	font-size: ($sizeValue * 16) * 1px;
+	font-size: $sizeValue * 1rem;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+/// Test if `$value` is a valid direction
+/// @param {*} $value - Value to test
+/// @return {Bool}
+@function is-direction($value) {
+	$is-keyword: index((to top, to top right, to right top, to right, to bottom right, to right bottom, to bottom, to bottom left, to left bottom, to left, to left top, to top left), $value);
+	$is-angle: type-of($value)=='number' and index('deg' 'grad' 'turn' 'rad', unit($value));
+	@return $is-keyword or $is-angle;
+}
+
+@function z($z-map, $layer) {
+	@if not map-has-key($z-map, $layer) {
+		@warn "No layer found for `#{$layer}` in the map. Property omitted.";
+	}
+	@return map-get($z-map, $layer);
+}
+
+@mixin linear-gradient($direction, $color-stops...) {
+	// Direction has been omitted and happens to be a color-stop
+	@if is-direction($direction)==false {
+		$color-stops: $direction, $color-stops;
+		$direction: 180deg;
+	}
+	background: nth(nth($color-stops, 1), 1);
+	background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+	background: linear-gradient($direction, $color-stops);
+}
+
+@mixin aspect-ratio($width, $height) {
+	position: relative;
+	&:before {
+		display: block;
+		content: "";
+		width: 100%;
+		padding-top: ($height / $width) * 100%;
+	}
+	> .content {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+}
+@mixin center-y($position: relative) {
+	position: $position;
+	top: 50%;
+	transform: translateY(-50%);
+}
+@mixin center-x($position: absolute) {
+	position: $position;
+	left: 50%;
+	transform: translateX(-50%);
+}
