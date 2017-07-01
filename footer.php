@@ -11,9 +11,8 @@
 
 ?>
 
-	</div><!-- #content -->
-
 	<footer id="colophon" class="site-footer">
+		<!--TODO: add mailchimp signup form here along with social and other info-->
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'wotm' ) ); ?>"><?php
 				/* translators: %s: CMS name, i.e. WordPress. */

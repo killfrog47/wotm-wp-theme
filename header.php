@@ -20,42 +20,34 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'wotm' ); ?></a>
-
-	<header id="masthead" class="site-header">
-
-		<div class="site-branding">
-			<?php
-			if ( is_front_page() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-			endif;
-
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php
-			endif; ?>
-		</div><!-- .site-branding -->
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'wotm' ); ?></button>
-			<?php
-				if( is_front_page() ) {
-					wp_nav_menu( array(
-						'theme_location' => 'home-menu',
-						'menu_id'        => 'primary-menu',
-					) );
-				}else{
-					wp_nav_menu( array(
-						'theme_location' => 'other-pages',
-						'menu_id'        => 'primary-menu',
-					) );
-				}
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
-
-	<div id="content" class="site-content">
+	<header class="hero-header <?php if ( is_front_page() ) : ?>full-hero<?php else : ?>standard-hero<?php endif; ?>">
+		<div class="row <?php if ( is_front_page() ) : ?>full-hero-content<?php else : ?>standard-hero-content<?php endif; ?>">
+			<div class="columns small-12 ">
+				<h1>Warriors of the Month</h1>
+			</div>
+		</div>
+	</header>
+	<div class="nav-hamburger">
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+	<?php
+		if( is_front_page() ) {
+			wp_nav_menu( array(
+				'container' => 'nav',
+				'container_class' => '',
+				'menu_class' => '',
+				'theme_location' => 'home-menu',
+				'menu_id'        => 'primary-menu',
+			) );
+		}else{
+			wp_nav_menu( array(
+				'container' => 'nav',
+				'container_class' => '',
+				'menu_class' => '',
+				'theme_location' => 'other-pages',
+				'menu_id'        => 'primary-menu',
+			) );
+		}
+	?>

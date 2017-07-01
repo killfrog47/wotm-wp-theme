@@ -92,7 +92,155 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 @include foundation-float-classes;
 
 // site styles
+body {
+	position: relative;
+	width: 100%;
+}
 
-header {
+// Header start
+header.hero-header {
+	width: 100%;
+	background: $black;
+	padding: 0;
+	position: relative;
+	&.full-hero {
+		height: 100vh;
+		.full-hero-content {
+
+			@include center-y();
+
+			h1 {
+				color: $white;
+				text-align: center;
+			}
+		}
+	}
+	&.standard-hero {
+		height: 100px;
+		.standard-hero-content {
+
+			@include center-y();
+
+			h1 {
+				color: $white;
+				text-align: center;
+			}
+		}
+	}
 
 }
+// Header end
+
+// Nav start
+.nav-hamburger {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	width: 50px;
+	height: 50px;
+	z-index: z($header, nav-hamburger);
+	span {
+		width: 35px;
+		position: absolute;
+		height: 5px;
+		background: $white;
+		top: 12px;
+		left: 7px;
+		transition: all .15s linear;
+		&:nth-child(2){
+			display: block;
+			top: 23px;
+		}
+		&:last-child(){
+			top: 34px;
+		}
+	}
+
+	&.active {
+		span {
+			transform: rotate(45deg);
+			top: 25px;
+			left: 7px;
+			&:nth-child(2){
+				display: none;
+			}
+			&:last-child(){
+				transform: rotate(-45deg);
+			}
+		}
+	}
+}
+nav {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	// display: none;
+	height: 100vh;
+	top: 0;
+	left: -100%;
+	// transition: left .25s ease-in-out;
+	z-index: z($header, nav);
+	padding: 80px 25px;
+	background: linear-gradient(to right, $black, rgba(0,0,0,0));
+	transition: left .18s ease-in-out .18s;
+
+	ul {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		li {
+			display: list-item;
+			margin-left: -100%;
+			list-style: none;
+			padding: 0;
+
+			a {
+				font-size: 20px;
+				color: white;
+			}
+			&:first-child(){
+				transition: margin .15s ease-in-out 0s;
+			}
+			&:nth-child(2){
+				transition: margin .15s ease-in-out .03s;
+			}
+			&:nth-child(3){
+				transition: margin .15s ease-in-out .06s;
+			}
+			&:nth-child(4){
+				transition: margin .15s ease-in-out .09s;
+			}
+			&:nth-child(5){
+				transition: margin .15s ease-in-out .12s;
+			}
+			&:nth-child(6){
+				transition: margin .15s ease-in-out .15s;
+			}
+			&:nth-child(7){
+				transition: margin .15s ease-in-out .18s;
+			}
+		}
+	}
+
+	&.active {
+		left: 0;
+		transition: all .18s ease-in-out 0s;
+		ul > li {
+			margin-left: 0;
+
+		}
+	}
+
+	@media(min-width: map($breakpoints, medium)) {
+		width: 400px;
+		left: -400px;
+	}
+}
+// Nav end
+// Content section start
+
+// Content section end
+
+// Footer start
+
+// Footer end

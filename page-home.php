@@ -5,24 +5,65 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+<main>
 
+	<section id="blog">
+		<div class="row section-title">
+			<div class="columns small-12 medium-12">
+				<h2>Blog</h2>
+			</div>
+		</div>
+		<div class="row">
 			<?php
-			while ( have_posts() ) : the_post();
+			// the query
+			$wpb_all_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'posts_per_page'=>6)); ?>
 
-				get_template_part( 'template-parts/content', 'page' );
+			<?php if ( $wpb_all_query->have_posts() ) : ?>
 
-				// If comments are open or we have at least one comment, load up the comment template.
-				// if ( comments_open() || get_comments_number() ) :
-				// 	comments_template();
-				// endif;
+				<!-- the loop -->
+				<?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
 
-			endwhile; // End of the loop.
-			?>
+					<div class="columns small-12 medium-4">
+						<h3>
+							<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+						</h3>
+						<p>
+							<?php the_excerpt(); ?>
+						</p>
+						<p>
+							<a href="<?php the_permalink(); ?>" class="readMore">Read More</a>
+						</p>
+					</div>
+				<?php endwhile; ?>
+				<!-- end of the loop -->
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+				<?php wp_reset_postdata(); ?>
+
+			<?php else : ?>
+				<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+			<?php endif; ?>
+		</div>
+	</section>
+	<section id="music">
+		<div class="row section-title">
+			<div class="columns small-12">
+				<h2>Music</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="columns small-12">
+				<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/286197382&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
+			</div>
+		</div>
+		<!--TODO: add custom feilds so the band can add music them selves-->
+	</section>
+	<section id="shows">
+		<!--TODO: add bands in town using their API: http://www.bandsintown.com/artist_platform/wordpress/documentation -->
+	</section>
+	<section id="contact">
+		<!--TODO: add email contact form to site: https://contactform7.com -->
+	</section>
+</main>
 
 <?php
 // get_sidebar();

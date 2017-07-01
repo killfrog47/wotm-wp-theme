@@ -38,6 +38,12 @@
 	}
 	@return map-get($z-map, $layer);
 }
+@function map($map, $layer) {
+	@if not map-has-key($map, $layer) {
+		@warn "No layer found for `#{$layer}` in the map. Property omitted.";
+	}
+	@return map-get($map, $layer);
+}
 
 @mixin linear-gradient($direction, $color-stops...) {
 	// Direction has been omitted and happens to be a color-stop
