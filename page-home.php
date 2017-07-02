@@ -59,10 +59,23 @@ get_header(); ?>
 	</section>
 	<section id="shows">
 		<!--TODO: add bands in town using their API: http://www.bandsintown.com/artist_platform/wordpress/documentation -->
+		<div class="row section-title">
+			<div class="columns small-12">
+				<h2>Shows</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="columns small-12">
+				<?php
+					$options = array('scope' => 'upcoming', 'artist' => 1, 'limit' => 10);
+    				echo gigpress_shows($options);
+				?>
+			</div>
+		</div>
 	</section>
-	<section id="contact">
+	<!--<section id="contact">-->
 		<!--TODO: add email contact form to site: https://contactform7.com -->
-	</section>
+	<!--</section>-->
 </main>
 
 <?php

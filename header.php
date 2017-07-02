@@ -20,13 +20,34 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<header class="hero-header <?php if ( is_front_page() ) : ?>full-hero<?php else : ?>standard-hero<?php endif; ?>">
-		<div class="row <?php if ( is_front_page() ) : ?>full-hero-content<?php else : ?>standard-hero-content<?php endif; ?>">
-			<div class="columns small-12 ">
-				<h1>Warriors of the Month</h1>
+	<?php if ( is_front_page() ) : ?>
+
+		<header class="hero-header full-hero">
+			<div class="row full-hero-content">
+				<div class="columns small-12 ">
+					<h1>Warriors of the Month</h1>
+					<h2 class="cursive">Assembly</h2>
+					<p>Out August 25<sup>th</sup></p>
+					<!--<p class="countdown-number">
+						<span class="all">0</span>
+					</p>-->
+					<!--<img src="<?php echo get_template_directory_uri(); ?>/images/diamond.png" alt="">-->
+				</div>
 			</div>
+		</header>
+		<div class="detail-bg">
 		</div>
-	</header>
+	<?php else : ?>
+
+		<header class="hero-header standard-hero">
+			<div class="row standard-hero-content">
+				<div class="columns small-12 ">
+					<h1>Warriors of the Month</h1>
+				</div>
+			</div>
+		</header>
+	<?php endif; ?>
+
 	<div class="nav-hamburger">
 		<span></span>
 		<span></span>

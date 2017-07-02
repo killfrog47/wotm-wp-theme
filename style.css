@@ -7613,6 +7613,10 @@ body {
 	width: 100%;
 }
 
+.cursive {
+	font-family: "Cedarville Cursive", cursive;
+}
+
 header.hero-header {
 	width: 100%;
 	background: #0a0a0a;
@@ -7625,6 +7629,11 @@ header.hero-header.full-hero {
 }
 
 header.hero-header.full-hero .full-hero-content {
+	background: url("images/diamond.png");
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	padding: 50px 0;
 	position: relative;
 	top: 50%;
 	-webkit-transform: translateY(-50%);
@@ -7634,7 +7643,20 @@ header.hero-header.full-hero .full-hero-content {
 
 header.hero-header.full-hero .full-hero-content h1 {
 	color: #fefefe;
+	font-size: 3rem;
 	text-align: center;
+}
+
+header.hero-header.full-hero .full-hero-content h2 {
+	color: #fefefe;
+	font-size: 3.75rem;
+	text-align: center;
+}
+
+header.hero-header.full-hero .full-hero-content p {
+	color: #fefefe;
+	text-align: center;
+	font-size: 24px;
 }
 
 header.hero-header.standard-hero {
@@ -7655,12 +7677,17 @@ header.hero-header.standard-hero .standard-hero-content h1 {
 }
 
 .nav-hamburger {
-	position: fixed;
 	top: 10px;
 	left: 10px;
 	width: 50px;
 	height: 50px;
 	z-index: 10;
+	width: 100%;
+	position: fixed;
+	padding: 10px 10px;
+	top: 0;
+	left: 0;
+	background: #0a0a0a;
 }
 
 .nav-hamburger span {
@@ -7796,4 +7823,14 @@ nav.active ul > li {
 		width: 400px;
 		left: -400px;
 	}
+}
+
+section {
+	min-height: 100vh;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+footer {
+	background: #0a0a0a;
 }

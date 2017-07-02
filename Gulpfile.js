@@ -77,7 +77,7 @@ gulp.task('watch', function() {
 	});
 	gulp.watch('./sass/*.scss', ['sass']);
 	// gulp.watch('./*.css', ['autoprefixer']);
-	gulp.watch('./js/*.js', ['javascript']);
+	// gulp.watch('./js/*.js', ['javascript']);
 	// gulp.watch(img + 'RAW/**/*.{jpg,JPG,png}', ['images']);
 	gulp.watch(['./**/*.php', './js/*.js']).on('change', browserSync.reload);
 });
