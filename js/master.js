@@ -16,12 +16,15 @@ jQuery(document).ready(function($) {
 		$(this).toggleClass('active');
 	})
 	var headerHeight = $('header.hero-header').height();
-	// $(window).scroll(function (event) {
-	// 	var scroll = $(window).scrollTop();
-	// 	if(headerHeight - scroll <= 50){
-	// 		console.log(headerHeight - scroll);
-
-	// 	}
-	// 	console.log(scroll)
-	// });
+	$(window).scroll(function (event) {
+		var scroll = $(window).scrollTop();
+		console.log($('#blog').scrollTop());
+	});
+	$(document).on('click', function(e){
+		console.log(!$(e.target).is(".nav-hamburger > *"), !$(e.target).is("#nav > *"), !$(e.target).is(".nav-hamburger"), !$(e.target).is("#nav"))
+		if (!$(e.target).is(".nav-hamburger > *") && !$(e.target).is("#nav > *") && !$(e.target).is(".nav-hamburger") && !$(e.target).is("#nav")) {
+			$('.nav-hamburger').removeClass('active');
+			$('#nav').removeClass('active');
+		}
+	})
 })

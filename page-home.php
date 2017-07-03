@@ -7,10 +7,11 @@ get_header(); ?>
 
 <main>
 
-	<section id="blog">
+	<section id="blog" class="parallax-window" data-parallax="scroll" data-image-src="<?php echo get_template_directory_uri(); ?>/images/band-bg-2.jpg">
 		<div class="row section-title">
 			<div class="columns small-12 medium-12">
 				<h2>Blog</h2>
+				<p></p>
 			</div>
 		</div>
 		<div class="row">
@@ -23,16 +24,21 @@ get_header(); ?>
 				<!-- the loop -->
 				<?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
 
-					<div class="columns small-12 medium-4">
-						<h3>
-							<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-						</h3>
-						<p>
+					<div class="columns small-12 medium-4 blog-post">
+						<div class="blog-post_content">
+							<h3>
+								<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+							</h3>
 							<?php the_excerpt(); ?>
-						</p>
-						<p>
-							<a href="<?php the_permalink(); ?>" class="readMore">Read More</a>
-						</p>
+							<p class="post-data">
+								Posted: <?php the_date(); ?> by <?php the_author(); ?>
+							</p>
+							<!--<p>-->
+							<div class="readMoreBtn">
+								<a href="<?php the_permalink(); ?>" class="readMore">Read More</a>
+							</div>
+							<!--</p>-->
+						</div>
 					</div>
 				<?php endwhile; ?>
 				<!-- end of the loop -->
@@ -57,7 +63,7 @@ get_header(); ?>
 		</div>
 		<!--TODO: add custom feilds so the band can add music them selves-->
 	</section>
-	<section id="shows">
+	<section id="shows" class="parallax-window" data-parallax="scroll" data-image-src="<?php echo get_template_directory_uri(); ?>/images/band-bg.jpg">
 		<!--TODO: add bands in town using their API: http://www.bandsintown.com/artist_platform/wordpress/documentation -->
 		<div class="row section-title">
 			<div class="columns small-12">

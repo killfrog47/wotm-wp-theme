@@ -99,13 +99,49 @@ body {
 .cursive {
 	font-family: $special-font-family;
 }
+.columns {
+	position: relative;
+}
+.row {
+	padding-left: 10px;
+	padding-right: 10px;
+	@media(min-width: map($breakpoints, medium)) {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+.readMore {
+	&:after {
+		content: "\f105";
+		font-family: FontAwesome;
+		margin-left: 6px;
+		font-size: 20px;
+	}
+}
 // Header start
 header.hero-header {
 	width: 100%;
 	background: $black;
 	padding: 0;
 	position: relative;
+	box-shadow: 0 0 12px $black;
+	z-index: map($header, header);
 	&.full-hero {
+		overflow: hidden;
+		.video-bg {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			min-width: 100%;
+			min-height: 100%;
+			width: auto;
+			height: auto;
+			// z-index: -100;
+			transform: translateX(-50%) translateY(-50%);
+			// background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+			// background-size: cover;
+			transition: 1s opacity;
+		}
 		height: 100vh;
 		.full-hero-content {
 			background: url('images/diamond.png');
@@ -264,11 +300,88 @@ nav {
 
 section {
 	min-height: 100vh;
-
+	position: relative;
 	padding-top: 50px;
 	padding-bottom: 50px;
-
-	// #
+	&#blog {
+		color: $black;
+		z-index: map($content, blog);
+		&:before {
+			content: '';
+			display: block;
+			width: 100%;
+			height: 100%;
+			background: $white;
+			opacity: .4;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.blog-post {
+			padding-top: 10px;
+			padding-bottom: 10px;
+			// box-shadow: 0 0 10px $black;
+			// background: none;
+			border: none;
+			min-height: 100%;
+			.blog-post_content {
+				width: 100%;
+				height: 100%;
+				position: relative;
+				background: $white;
+				padding: 10px;
+				padding-bottom: 60px;
+				.card-image {
+					// background: $white;
+				}
+				.post-data {
+					text-align: right;
+					font-size: 12px;
+					color: $dark-gray;
+				}
+				.readMoreBtn {
+					position: absolute;
+					bottom: 10px;
+					width: calc(100% - 20px);
+					.readMore {
+						display: block;
+						// position: absolute;
+						bottom: 0;
+						left: 0;
+						width: 100%;
+						height: 50px;
+						line-height: 22px;
+						text-align: center;
+						padding: 10px;
+						// background: $black;
+						border: 4px solid $red;
+					}
+				}
+			}
+		}
+	}
+	&#music {
+		z-index: map($content, music);
+		// background: linear-gradient(to bottom right, $red, $blue, $green);
+		background: linear-gradient(to bottom left, $red, rgba(255, 171, 42, .2) ,$blue),
+		linear-gradient(to top left, $yellow, rgba(255, 171, 42, .2) ,$green);
+		box-shadow: 0 0 12px $black;
+	}
+	&#shows {
+		z-index: map($content, shows);
+		color: $black;
+		&:before {
+			content: '';
+			display: block;
+			width: 100%;
+			height: 100%;
+			background: $white;
+			opacity: .4;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
 
 
 }
@@ -278,8 +391,14 @@ section {
 // Footer start
 
 footer {
-	// height: 50px;
+	// height: 150px;
 	background: $black;
+
+	form {
+		position: relative;
+	}
 }
+
+
 
 // Footer end

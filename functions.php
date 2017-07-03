@@ -111,8 +111,11 @@ function wotm_scripts() {
 
 	wp_register_script( 'fancybox', get_template_directory_uri() . '/js/jquery.fancybox.min.js' );
 	wp_register_script( 'countdown', get_template_directory_uri() . '/js/jquery.countdown.min.js' );
+	wp_register_script( 'parallax', get_template_directory_uri() . '/js/parallax.min.js' );
+	wp_register_script( 'fa', 'https://use.fontawesome.com/55551ed83b.js' );
 
-	wp_enqueue_script( 'wotm-master-js', get_template_directory_uri() . '/js/master.js', array('jquery','fancybox','countdown'), '20151215', true );
+	wp_enqueue_script( 'fa' );
+	wp_enqueue_script( 'wotm-master-js', get_template_directory_uri() . '/js/master.js', array('jquery','fancybox','countdown','parallax'), '20151215', true );
 
 	// if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 	// 	wp_enqueue_script( 'comment-reply' );

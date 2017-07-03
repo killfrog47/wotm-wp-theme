@@ -72,7 +72,7 @@ gulp.task('javascript', function() {
 gulp.task('watch', function() {
 	browserSync.init({
 		open: 'external',
-		proxy: 'wordpress-dev',
+		proxy: 'wordpress.dev',
 		port: 8080
 	});
 	gulp.watch('./sass/*.scss', ['sass']);

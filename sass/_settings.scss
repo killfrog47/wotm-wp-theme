@@ -61,11 +61,11 @@
 //  56. Xy Grid
 
 @import 'util/util';
-@import url('https://fonts.googleapis.com/css?family=Cedarville+Cursive|Roboto:900');
+@import url('https://fonts.googleapis.com/css?family=Cedarville+Cursive|Roboto:100,300,400,500,900');
 // 1. Global
 // ---------
 
-$global-font-size: 100%;
+$global-font-size: 16px;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
@@ -73,11 +73,16 @@ $foundation-palette: (
   secondary: #767676,
   success: #3adb76,
   warning: #ffae00,
-  alert: #cc4b37,
+  alert: #FF3131,
 );
+$yellow: #FFAB2A;
+$green: #2AFF2A;
+$blue: #3B98FF;
+$red: #FF2A2A;
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
+$darker-gray: #4D4D4D;
 $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $white;
@@ -89,6 +94,7 @@ $global-padding: 1rem;
 $global-position: 1rem;
 $global-weight-normal: normal;
 $global-weight-bold: bold;
+$global-weight-black: 900;
 $global-radius: 0;
 $global-menu-padding: 0.7rem 1rem;
 $global-menu-nested-margin: 1rem;
@@ -132,7 +138,7 @@ $block-grid-max: 8;
 $special-font-family: 'Cedarville Cursive', cursive;
 
 $header-font-family: $body-font-family;
-$header-font-weight: $global-weight-normal;
+$header-font-weight: $global-weight-black;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-color: inherit;
@@ -140,9 +146,9 @@ $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
 $header-styles: (
   small: (
-    'h1': ('font-size': 24),
-    'h2': ('font-size': 20),
-    'h3': ('font-size': 19),
+    'h1': ('font-size': 35),
+    'h2': ('font-size': 32),
+    'h3': ('font-size': 25),
     'h4': ('font-size': 18),
     'h5': ('font-size': 17),
     'h6': ('font-size': 16),
@@ -168,7 +174,7 @@ $code-font-weight: $global-weight-normal;
 $code-background: $light-gray;
 $code-border: 1px solid $medium-gray;
 $code-padding: rem-calc(2 5 1);
-$anchor-color: $primary-color;
+$anchor-color: $red;
 $anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
@@ -864,5 +870,12 @@ $block-grid-max: 8;
 $header: (
   'nav-hamburger': 10,
   'nav': 9,
+  'header': 8,
   'default': 0,
+);
+$content: (
+  'blog': 1,
+  'music': 2,
+  'shows': 1,
+  'default': 0
 );

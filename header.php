@@ -23,6 +23,9 @@
 	<?php if ( is_front_page() ) : ?>
 
 		<header class="hero-header full-hero">
+			<video autoplay loop class="video-bg" muted plays-inline>
+				<source src="<?php echo get_template_directory_uri(); ?>/videos/promo.mp4" type="">
+			</video>
 			<div class="row full-hero-content">
 				<div class="columns small-12 ">
 					<h1>Warriors of the Month</h1>
@@ -58,6 +61,7 @@
 			wp_nav_menu( array(
 				'container' => 'nav',
 				'container_class' => '',
+				'container_id' => 'nav',
 				'menu_class' => '',
 				'theme_location' => 'home-menu',
 				'menu_id'        => 'primary-menu',
@@ -66,6 +70,7 @@
 			wp_nav_menu( array(
 				'container' => 'nav',
 				'container_class' => '',
+				'container_id' => 'nav',
 				'menu_class' => '',
 				'theme_location' => 'other-pages',
 				'menu_id'        => 'primary-menu',
