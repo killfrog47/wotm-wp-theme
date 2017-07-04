@@ -298,6 +298,22 @@ nav {
 // Nav end
 // Content section start
 
+@keyframes gradient-animation {
+	0% {
+		background: $red;
+		// background: linear-gradient(to bottom right, $red, #000);
+	}
+	50% {
+		background: $yellow;
+		// background: linear-gradient(to bottom right, $yellow, $red);
+	}
+	100% {
+		background: #000;
+		// background: linear-gradient(to bottom right, #000, $yellow);
+	}
+}
+
+
 section {
 	min-height: 100vh;
 	position: relative;
@@ -312,6 +328,7 @@ section {
 			width: 100%;
 			height: 100%;
 			background: $white;
+			// background: linear-gradient(to bottom, rgba(77, 77, 77,.3), $blue);
 			opacity: .4;
 			position: absolute;
 			top: 0;
@@ -362,10 +379,15 @@ section {
 	}
 	&#music {
 		z-index: map($content, music);
-		// background: linear-gradient(to bottom right, $red, $blue, $green);
-		background: linear-gradient(to bottom left, $red, rgba(255, 171, 42, .2) ,$blue),
-		linear-gradient(to top left, $yellow, rgba(255, 171, 42, .2) ,$green);
+		// animation: gradient-animation 4s infinite;
+		// background: linear-gradient(to top, $black, $darker-gray);
+		background: $black;
+		// background: linear-gradient(to bottom left, $red, rgba(255, 171, 42, .2) ,$blue),
+		// linear-gradient(to top left, $yellow, rgba(255, 171, 42, .2) ,$green);
+		// background: url('images/bg-texture.jpg');
+		// background-position: top left;
 		box-shadow: 0 0 12px $black;
+		color: $white;
 	}
 	&#shows {
 		z-index: map($content, shows);
@@ -376,6 +398,7 @@ section {
 			width: 100%;
 			height: 100%;
 			background: $white;
+			// background: linear-gradient(to bottom, rgba(77, 77, 77,.3), $blue);
 			opacity: .4;
 			position: absolute;
 			top: 0;

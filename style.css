@@ -48,7 +48,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 --------------------------------------------------------------*/
 /**
  * Foundation for Sites by ZURB
- * Version 6.4.1
+ * Version 6.4.0
  * foundation.zurb.com
  * Licensed under MIT Open Source
  */
@@ -3658,6 +3658,7 @@ legend {
 	margin: 0;
 	margin-left: -0.1875rem;
 	padding: 0 0.1875rem;
+	background: #fefefe;
 }
 
 select {
@@ -4268,44 +4269,6 @@ select[multiple] {
 	margin-left: 0;
 }
 
-.accordion-menu .is-accordion-submenu-parent:not(.has-submenu-toggle) > a {
-	position: relative;
-}
-
-.accordion-menu .is-accordion-submenu-parent:not(.has-submenu-toggle) > a::after {
-	display: block;
-	width: 0;
-	height: 0;
-	border: inset 6px;
-	content: '';
-	border-bottom-width: 0;
-	border-top-style: solid;
-	border-color: #1779ba transparent transparent;
-	position: absolute;
-	top: 50%;
-	margin-top: -3px;
-	right: 1rem;
-}
-
-.accordion-menu.align-left .is-accordion-submenu-parent > a::after {
-	left: auto;
-	right: 1rem;
-}
-
-.accordion-menu.align-right .is-accordion-submenu-parent > a::after {
-	right: auto;
-	left: 1rem;
-}
-
-.accordion-menu .is-accordion-submenu-parent[aria-expanded='true'] > a::after {
-	-webkit-transform: rotate(180deg);
-	-ms-transform: rotate(180deg);
-	transform: rotate(180deg);
-	-webkit-transform-origin: 50% 50%;
-	-ms-transform-origin: 50% 50%;
-	transform-origin: 50% 50%;
-}
-
 .is-accordion-submenu-parent {
 	position: relative;
 }
@@ -4357,6 +4320,44 @@ select[multiple] {
 	-webkit-clip-path: inset(50%);
 	clip-path: inset(50%);
 	border: 0;
+}
+
+.is-accordion-submenu-parent:not(.has-submenu-toggle) > a {
+	position: relative;
+}
+
+.is-accordion-submenu-parent:not(.has-submenu-toggle) > a::after {
+	display: block;
+	width: 0;
+	height: 0;
+	border: inset 6px;
+	content: '';
+	border-bottom-width: 0;
+	border-top-style: solid;
+	border-color: #1779ba transparent transparent;
+	position: absolute;
+	top: 50%;
+	margin-top: -3px;
+	right: 1rem;
+}
+
+.align-left .is-accordion-submenu-parent > a::after {
+	left: auto;
+	right: 1rem;
+}
+
+.align-right .is-accordion-submenu-parent > a::after {
+	right: auto;
+	left: 1rem;
+}
+
+.is-accordion-submenu-parent[aria-expanded='true'] > a::after {
+	-webkit-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	transform: rotate(180deg);
+	-webkit-transform-origin: 50% 50%;
+	-ms-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
 }
 
 .badge {
@@ -7867,6 +7868,30 @@ nav.active ul > li {
 	}
 }
 
+@-webkit-keyframes gradient-animation {
+	0% {
+		background: #FF2A2A;
+	}
+	50% {
+		background: #FFAB2A;
+	}
+	100% {
+		background: #000;
+	}
+}
+
+@keyframes gradient-animation {
+	0% {
+		background: #FF2A2A;
+	}
+	50% {
+		background: #FFAB2A;
+	}
+	100% {
+		background: #000;
+	}
+}
+
 section {
 	min-height: 100vh;
 	position: relative;
@@ -7933,12 +7958,10 @@ section#blog .blog-post .blog-post_content .readMoreBtn .readMore {
 
 section#music {
 	z-index: 2;
-	background: -webkit-gradient(linear, right top, left bottom, from(#FF2A2A), color-stop(rgba(255, 171, 42, 0.2)), to(#3B98FF)), -webkit-gradient(linear, right bottom, left top, from(#FFAB2A), color-stop(rgba(255, 171, 42, 0.2)), to(#2AFF2A));
-	background: -webkit-linear-gradient(top right, #FF2A2A, rgba(255, 171, 42, 0.2), #3B98FF), -webkit-linear-gradient(bottom right, #FFAB2A, rgba(255, 171, 42, 0.2), #2AFF2A);
-	background: -o-linear-gradient(top right, #FF2A2A, rgba(255, 171, 42, 0.2), #3B98FF), -o-linear-gradient(bottom right, #FFAB2A, rgba(255, 171, 42, 0.2), #2AFF2A);
-	background: linear-gradient(to bottom left, #FF2A2A, rgba(255, 171, 42, 0.2), #3B98FF), linear-gradient(to top left, #FFAB2A, rgba(255, 171, 42, 0.2), #2AFF2A);
+	background: #0a0a0a;
 	-webkit-box-shadow: 0 0 12px #0a0a0a;
 	box-shadow: 0 0 12px #0a0a0a;
+	color: #fefefe;
 }
 
 section#shows {
