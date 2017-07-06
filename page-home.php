@@ -24,7 +24,7 @@ get_header(); ?>
 				<!-- the loop -->
 				<?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
 
-					<div class="columns small-12 medium-4 blog-post">
+					<div class="columns small-12 medium-12 blog-post">
 						<div class="blog-post_content">
 							<h3>
 								<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>

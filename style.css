@@ -7910,7 +7910,7 @@ section#blog:before {
 	width: 100%;
 	height: 100%;
 	background: #fefefe;
-	opacity: .4;
+	opacity: .6;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -7927,7 +7927,6 @@ section#blog .blog-post .blog-post_content {
 	width: 100%;
 	height: 100%;
 	position: relative;
-	background: #fefefe;
 	padding: 10px;
 	padding-bottom: 60px;
 }
@@ -7941,7 +7940,6 @@ section#blog .blog-post .blog-post_content .post-data {
 section#blog .blog-post .blog-post_content .readMoreBtn {
 	position: absolute;
 	bottom: 10px;
-	width: calc(100% - 20px);
 }
 
 section#blog .blog-post .blog-post_content .readMoreBtn .readMore {
@@ -7953,7 +7951,6 @@ section#blog .blog-post .blog-post_content .readMoreBtn .readMore {
 	line-height: 22px;
 	text-align: center;
 	padding: 10px;
-	border: 4px solid #FF2A2A;
 }
 
 section#music {
@@ -7983,6 +7980,7 @@ section#shows:before {
 
 footer {
 	background: #0a0a0a;
+	color: #fefefe;
 }
 
 footer form {
