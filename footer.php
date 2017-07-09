@@ -14,12 +14,12 @@
 	<footer id="footer">
 		<!--TODO: add mailchimp signup form here along with social and other info-->
 		<div class="row">
-			<div class="columns small-12 medium-6 large-4">
+			<!--<div class="columns small-12 medium-6 large-4">
 				<p>
 					Copywrite Warriors of the Month 2017
 				</p>
-			</div>
-			<div class="columns small-12 medium-6 large-4 large-offset-4">
+			</div>-->
+			<div class="columns small-12 medium-6 medium-offset-6 large-4 large-offset-8">
 				<!-- Begin MailChimp Signup Form -->
 				<form action="//warriorsofthemonth.us10.list-manage.com/subscribe/post?u=3ce81cc8b4d0f58b137414ad7&amp;id=a7bc4074d9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 					<p>Subscribe to our mailing list</p>

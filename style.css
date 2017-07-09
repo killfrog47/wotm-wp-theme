@@ -43,12 +43,113 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 	## Galleries
 --------------------------------------------------------------*/
 @import url("https://fonts.googleapis.com/css?family=Cedarville+Cursive|Roboto:100,300,400,500,900");
+/* Slider */
+.slick-slider {
+	position: relative;
+	display: block;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-ms-touch-action: pan-y;
+	touch-action: pan-y;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+	position: relative;
+	overflow: hidden;
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+.slick-list:focus {
+	outline: none;
+}
+
+.slick-list.dragging {
+	cursor: pointer;
+	cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+	-webkit-transform: translate3d(0, 0, 0);
+	-ms-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+	position: relative;
+	left: 0;
+	top: 0;
+	display: block;
+}
+
+.slick-track:before, .slick-track:after {
+	content: "";
+	display: table;
+}
+
+.slick-track:after {
+	clear: both;
+}
+
+.slick-loading .slick-track {
+	visibility: hidden;
+}
+
+.slick-slide {
+	float: left;
+	height: 100%;
+	min-height: 1px;
+	display: none;
+}
+
+[dir="rtl"] .slick-slide {
+	float: right;
+}
+
+.slick-slide img {
+	display: block;
+}
+
+.slick-slide.slick-loading img {
+	display: none;
+}
+
+.slick-slide.dragging img {
+	pointer-events: none;
+}
+
+.slick-initialized .slick-slide {
+	display: block;
+}
+
+.slick-loading .slick-slide {
+	visibility: hidden;
+}
+
+.slick-vertical .slick-slide {
+	display: block;
+	height: auto;
+	border: 1px solid transparent;
+}
+
+.slick-arrow.slick-hidden {
+	display: none;
+}
+
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
 /**
  * Foundation for Sites by ZURB
- * Version 6.4.0
+ * Version 6.4.1
  * foundation.zurb.com
  * Licensed under MIT Open Source
  */
@@ -3658,7 +3759,6 @@ legend {
 	margin: 0;
 	margin-left: -0.1875rem;
 	padding: 0 0.1875rem;
-	background: #fefefe;
 }
 
 select {
@@ -4269,6 +4369,44 @@ select[multiple] {
 	margin-left: 0;
 }
 
+.accordion-menu .is-accordion-submenu-parent:not(.has-submenu-toggle) > a {
+	position: relative;
+}
+
+.accordion-menu .is-accordion-submenu-parent:not(.has-submenu-toggle) > a::after {
+	display: block;
+	width: 0;
+	height: 0;
+	border: inset 6px;
+	content: '';
+	border-bottom-width: 0;
+	border-top-style: solid;
+	border-color: #1779ba transparent transparent;
+	position: absolute;
+	top: 50%;
+	margin-top: -3px;
+	right: 1rem;
+}
+
+.accordion-menu.align-left .is-accordion-submenu-parent > a::after {
+	left: auto;
+	right: 1rem;
+}
+
+.accordion-menu.align-right .is-accordion-submenu-parent > a::after {
+	right: auto;
+	left: 1rem;
+}
+
+.accordion-menu .is-accordion-submenu-parent[aria-expanded='true'] > a::after {
+	-webkit-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	transform: rotate(180deg);
+	-webkit-transform-origin: 50% 50%;
+	-ms-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+}
+
 .is-accordion-submenu-parent {
 	position: relative;
 }
@@ -4320,44 +4458,6 @@ select[multiple] {
 	-webkit-clip-path: inset(50%);
 	clip-path: inset(50%);
 	border: 0;
-}
-
-.is-accordion-submenu-parent:not(.has-submenu-toggle) > a {
-	position: relative;
-}
-
-.is-accordion-submenu-parent:not(.has-submenu-toggle) > a::after {
-	display: block;
-	width: 0;
-	height: 0;
-	border: inset 6px;
-	content: '';
-	border-bottom-width: 0;
-	border-top-style: solid;
-	border-color: #1779ba transparent transparent;
-	position: absolute;
-	top: 50%;
-	margin-top: -3px;
-	right: 1rem;
-}
-
-.align-left .is-accordion-submenu-parent > a::after {
-	left: auto;
-	right: 1rem;
-}
-
-.align-right .is-accordion-submenu-parent > a::after {
-	right: auto;
-	left: 1rem;
-}
-
-.is-accordion-submenu-parent[aria-expanded='true'] > a::after {
-	-webkit-transform: rotate(180deg);
-	-ms-transform: rotate(180deg);
-	transform: rotate(180deg);
-	-webkit-transform-origin: 50% 50%;
-	-ms-transform-origin: 50% 50%;
-	transform-origin: 50% 50%;
 }
 
 .badge {
@@ -7704,6 +7804,7 @@ header.hero-header.full-hero .full-hero-content p {
 
 header.hero-header.standard-hero {
 	height: 100px;
+	margin-top: 50px;
 }
 
 header.hero-header.standard-hero .standard-hero-content {
@@ -7899,58 +8000,49 @@ section {
 	padding-bottom: 50px;
 }
 
-section#blog {
-	color: #0a0a0a;
+section#news {
+	color: #fefefe;
 	z-index: 1;
 }
 
-section#blog:before {
+section#news:before {
 	content: '';
 	display: block;
 	width: 100%;
 	height: 100%;
-	background: #fefefe;
-	opacity: .6;
+	background: #0a0a0a;
+	opacity: .25;
 	position: absolute;
 	top: 0;
 	left: 0;
 }
 
-section#blog .blog-post {
+section#news .blog-post {
 	padding-top: 10px;
 	padding-bottom: 10px;
 	border: none;
 	min-height: 100%;
 }
 
-section#blog .blog-post .blog-post_content {
+section#news .blog-post .blog-post_content {
 	width: 100%;
 	height: 100%;
 	position: relative;
-	padding: 10px;
 	padding-bottom: 60px;
 }
 
-section#blog .blog-post .blog-post_content .post-data {
-	text-align: right;
-	font-size: 12px;
-	color: #8a8a8a;
+section#news .blog-post .blog-post_content a {
+	color: #fefefe;
 }
 
-section#blog .blog-post .blog-post_content .readMoreBtn {
+section#news .blog-post .blog-post_content .post-data {
+	font-size: 12px;
+	color: #fefefe;
+}
+
+section#news .blog-post .blog-post_content .readMoreBtn {
 	position: absolute;
 	bottom: 10px;
-}
-
-section#blog .blog-post .blog-post_content .readMoreBtn .readMore {
-	display: block;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 50px;
-	line-height: 22px;
-	text-align: center;
-	padding: 10px;
 }
 
 section#music {
@@ -7963,7 +8055,7 @@ section#music {
 
 section#shows {
 	z-index: 1;
-	color: #0a0a0a;
+	color: #fefefe;
 }
 
 section#shows:before {
@@ -7971,8 +8063,8 @@ section#shows:before {
 	display: block;
 	width: 100%;
 	height: 100%;
-	background: #fefefe;
-	opacity: .4;
+	background: #0a0a0a;
+	opacity: .25;
 	position: absolute;
 	top: 0;
 	left: 0;

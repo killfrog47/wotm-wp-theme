@@ -24,7 +24,7 @@
 
 		<header class="hero-header full-hero">
 			<video autoplay loop class="video-bg" muted plays-inline>
-				<source src="<?php echo get_template_directory_uri(); ?>/videos/promo.mp4" type="">
+				<source src="<?php echo get_template_directory_uri(); ?>/videos/live.mp4" type="">
 			</video>
 			<div class="row full-hero-content">
 				<div class="columns small-12 ">
@@ -45,7 +45,7 @@
 		<header class="hero-header standard-hero">
 			<div class="row standard-hero-content">
 				<div class="columns small-12 ">
-					<h1>Warriors of the Month</h1>
+					<a href="<?php echo get_home_url(); ?>"><h1>Warriors of the Month</h1></a>
 				</div>
 			</div>
 		</header>
