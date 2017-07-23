@@ -409,6 +409,18 @@ section {
 			top: 0;
 			left: 0;
 		}
+		table {
+			thead, tbody {
+				// border: none;
+				// background: transparent;
+				tr {
+					color: $black;
+				}
+			}
+		}
+		.gigpress-header {
+			// color: $white;
+		}
 	}
 
 
